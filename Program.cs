@@ -1,60 +1,24 @@
-﻿//1 Задача 
-Console.Write("Введите значение M: ");
-int M = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение N: ");
-int N = Convert.ToInt32(Console.ReadLine());
-PrintNaturalNumbers(M, N);
-
-void PrintNaturalNumbers(int M, int N)
+﻿﻿string[] array1 = new string[5] {"123", "23", "hello", "world", "res"};
+string[] array2 = new string[array1.Length];
+void SecondArray(string[] array1, string[] array2)
 {
-    if (M <= N)
+    int count = 0;
+    for (int i = 0; i < array1.Length; i++)
     {
-        Console.WriteLine(M);
-        PrintNaturalNumbers(M + 1, N);
-    }
-    else
-    {
-        return;
+    if(array1[i].Length <= 3)
+        {
+        array2[count] = array1[i];
+        count++;
+        }
     }
 }
-
-
-//2 Задача
-Console.Write("Введите значение m: ");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите значение n: ");
-int n = Convert.ToInt32(Console.ReadLine());
-
-int result = Ackermann(m, n);
-Console.WriteLine("Результат функции Аккермана: " + result);
-
-int Ackermann(int m, int n)
-{   
-if (m == 0)
+void PrintArray(string[] array)
 {
-    return n + 1;
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
 }
- else if (m > 0 && n == 0)
-{
-    return Ackermann(m - 1, 1);
-}
-else
-{
-    return Ackermann(m - 1, Ackermann(m, n - 1));
-}
-}
-
-
-// 3 Задача
-int[] array = {1, 2, 5, 0, 10, 34};
-Console.WriteLine("Элементы массива в обратном порядке:");
-ReverseArray(array, array.Length - 1);
-
-void ReverseArray(int[] array2,int indexx)
-{
-   if (indexx >=0)
-   {
-    Console.WriteLine(array2[indexx]);
-    ReverseArray(array2, indexx - 1);
-   }
-}
+SecondArray(array1, array2);
+PrintArray(array2);
